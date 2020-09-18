@@ -9,7 +9,12 @@
 // Set up some global constants for the program
 const express = require('express');
 const app = express();
-const port = 80;
+app.listen(process.env.PORT);
+let port = process.env.PORT;
+if (port === null || port === "") {
+  port = 8000;
+}
+app.listen(port);
 
 /**
  * The index function redirects the user to request "index.html"
